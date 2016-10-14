@@ -1,10 +1,13 @@
-sdf
+
 <odoo>
     <record id="idea_view_form" model="ir.ui.view">
         <field name="name">idea.view.form</field>
         <field name="model">idea.idea</field>
         <field name="arch" type="xml">
             <form string="Idea form">
+                <!--<header>-->
+                    <!--<field name="state" widget="statusbar" />-->
+                <!--</header>-->
                 <sheet>
                     <group>
                         <group>
@@ -14,8 +17,17 @@ sdf
                         </group>
                         <group>
                             <field name="active"/>
+                            <field name="sponsor_ids" widget="many2many_tags"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Votes">
+                            <field name="vote_ids"/>
+                        </page>
+                        <page string="Description">
+                            <field name="description" placeholder="Disini tulis deskripsi ide Anda"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
