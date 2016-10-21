@@ -1,12 +1,13 @@
-from odoo import http
-from odoo.http import request
+from odoo import http           #http merupakan suatu module/object besar dimana didalamnya diimplementasikan HTTP Layer
+from odoo.http import request   #request merupakan suatu module/object untuk Request Handle yg telah diperkaya dengan ENV odoo
 from odoo.addons.website.models.website import unslug
 import datetime
 # from odoo.tools.translate import _
 
 class WebsiteIdea(http.Controller):
 
-    # website = True : module dedicate to building website  (styly, theme, assets)
+    # website = True : module dedicate to building website  (styly, theme, assets,
+    # snippet, inline editor, SEO Tools, etc)
 
     @http.route(["/idea"], type="http", auth="public", website=True)
     def idea(self, succes=0):

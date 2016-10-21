@@ -1,5 +1,13 @@
 <odoo>
+
+    <!--Ojective :-->
+    <!--1. Cara Buat Template website-->
+    <!--2. Mengenal QWeb : odoo templating engine to generate HTML fragments & pages (thank you Jinja & Mako -->
+    <!--2. Website.layout-->
+    <!--3. binding data model -->
+    <!--4. Mengenal HTML Tag, CSS, & Boostrap-->
     <template id="index" name="Idea Template Index">
+        <!--available data from controller : idea_data, title-->
         <t t-call="website.layout">
             <div id="wrap">
                 <div class="oe_structure"/>
@@ -42,6 +50,8 @@
     </template>
 
     <!--INHERIT TEMPLATE-->
+    <!--Objective :-->
+    <!--1. Inherit Template-->
     <template id="index-inherit" name="Idea Template Index Inherit" inherit_id="website_idea.index">
         <xpath expr="//div[@id='idea-header']" position="after">
             <div class="container">
