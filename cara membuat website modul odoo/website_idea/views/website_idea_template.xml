@@ -1,0 +1,84 @@
+<odoo>
+    <template id="index" name="Idea Template Index">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure"/>
+                <div id="idea-header" class="oe_structure">
+                    <t t-if="success">
+                        <h1 class="text-center btn-primary">Vote anda Berhasil</h1>
+                    </t>
+                    <section>
+                        <h1 class="text-center">
+                            <t t-esc="title"/>
+                        </h1><h2 class="text-center text-muted">
+                            Klik IDE di bawah ini untuk melakukan vote !
+                        </h2>
+                    </section>
+                </div>
+                <div class="oe_structure"/>
+
+            </div>
+        </t>
+    </template>
+
+    <template id="idea-table-header">
+        <tr style="background: #dae8f5;">
+            <th style="width: 20%;">
+                <span>Judul</span>
+            </th>
+            <th style="width: 15%;">
+                <span>Tanggal</span>
+            </th>
+            <th style="width: 20%;">
+                <span>Pemilik Ide</span>
+            </th>
+            <th style="width: 35%;">
+                <span>Keterangan</span>
+            </th>
+            <th style="width: 10%;">
+                <span>Score</span>
+            </th>
+        </tr>
+    </template>
+
+    <!--INHERIT TEMPLATE-->
+    <template id="index-inherit" name="Idea Template Index Inherit" inherit_id="website_idea.index">
+        <xpath expr="//div[@id='idea-header']" position="after">
+            <div class="container">
+                <table class="table table-bordered table-striped">
+                    <t t-call="website_idea.idea-table-header"/>
+                    <t t-foreach="idea_data" t-as="rec">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/idea/#{slug(rec)}">
+                                    <span t-field="rec.name"/>
+                                 </a>
+                            </td>
+                            <td>
+                                <span t-field="rec.date"/>
+                            </td>
+                            <td>
+                                <span t-field="rec.owner"/>
+                            </td>
+                            <td>
+                                <span t-field="rec.description"/>
+                            </td>
+                            <td>
+                                <span t-field="rec.score"/>
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </xpath>
+
+    </template>
+
+    <!--INHERIT FOOTER-->
+    <template id="footer_custom" inherit_id="website.footer_default" name="Footer Customer Idea Link">
+        <xpath expr="//div[@id='info']/ul" position="inside">
+            <li><a href="/idea">IDEA</a></li>
+        </xpath>
+    </template>
+
+</odoo>

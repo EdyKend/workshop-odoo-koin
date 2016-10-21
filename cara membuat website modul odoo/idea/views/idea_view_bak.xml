@@ -1,0 +1,74 @@
+<odoo>
+    <record id="idea_view_form" model="ir.ui.view">
+        <field name="name">idea.view.form</field>
+        <field name="model">idea.idea</field>
+        <field name="arch" type="xml">
+            <form string="Idea form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <!--<field name="inventor_id"/>-->
+                            <!--<field name="inventor_country_id" />-->
+                            <field name="score"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                            <!--<field name="invent_date"/>-->
+                        </group>
+                    </group>
+                    <!--<notebook colspan="4">-->
+                        <!--<page string="General">-->
+                            <!--<separator string="Description"/>-->
+                            <!--<field colspan="4" name="description" nolabel="1"/>-->
+                        <!--</page>-->
+                        <!--<page string="Votes">-->
+                            <!--<field colspan="4" name="vote_ids" nolabel="1">-->
+                                <!--<tree>-->
+                                    <!--<field name="partner_id"/>-->
+                                    <!--<field name="vote"/>-->
+                                <!--</tree>-->
+                            <!--</field>-->
+                        <!--</page>-->
+                        <!--<page string="Sponsors">-->
+                            <!--<field colspan="4" name="sponsor_ids" nolabel="1"/>-->
+                        <!--</page>-->
+                    <!--</notebook>-->
+                    <!--<field name="state"/>-->
+                    <!--<button name="do_confirm" string="Confirm" type="object"/>-->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="idea_view_list" model="ir.ui.view">
+        <field name="name">idea.view.list</field>
+        <field name="model">idea.idea</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="score"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="idea_action" model="ir.actions.act_window">
+        <field name="name">Idea</field>
+        <field name="res_model">idea.idea</field>
+        <field name="view_id" ref="idea_view_list"/>
+        <!--<field name="domain">[]</field>-->
+        <!--<field name="context">{}</field>-->
+        <field name="view_type">form</field>
+        <field name="view_mode">form,tree</field>
+        <!--<field name="search_view_id" ref="search_view_id"/>-->
+    </record>
+
+    <menuitem id="exercise_menu" name="Exercise"
+              sequence="10"/>
+
+    <menuitem id="idea_mmenu" parent="idea.exercise_menu" name="Idea"
+              action="idea_action" sequence="10"/>
+
+</odoo>

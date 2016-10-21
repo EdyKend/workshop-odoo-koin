@@ -1,0 +1,66 @@
+
+<odoo>
+    <record id="idea_vote_view_form" model="ir.ui.view">
+        <field name="name">idea.view.form</field>
+        <field name="model">idea.vote</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="voter_id" context="{'show_address': 1}" options='{"always_reload": True}'/>
+                            <field name="idea_id"/>
+                            <field name="date"/>
+                            <field name="score"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                            <field name="voter_name"/>
+                            <field name="voter_street"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="idea_vote_view_search" model="ir.ui.view">
+        <field name="name">idea.vote.view.seacrh</field>
+        <field name="model">idea.vote</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="voter_id"/>
+                <field name="score"/>
+                <group expand="0" string="Group By">
+                    <filter string="Voter"  context="{'group_by': 'voter_id'}"/>
+                    <filter string="Date"  context="{'group_by': 'date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="idea_vote_view_list" model="ir.ui.view">
+        <field name="name">idea.vote.view.list</field>
+        <field name="model">idea.vote</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="voter_id"/>
+                <field name="date"/>
+                <field name="score"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="idea_vote_action" model="ir.actions.act_window">
+        <field name="name">Vote</field>
+        <field name="res_model">idea.vote</field>
+        <field name="view_id" ref="idea_vote_view_list"/>
+        <field name="view_type">form</field>
+        <field name="view_mode">form,tree</field>
+    </record>
+
+
+    <menuitem id="idea_vote_menu" parent="idea.exercise_menu" name="Vote"
+              action="idea_vote_action" sequence="15"/>
+
+</odoo>
