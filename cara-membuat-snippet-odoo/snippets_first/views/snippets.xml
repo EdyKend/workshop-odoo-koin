@@ -1,0 +1,44 @@
+<odoo>
+
+    <template id="s_ourteam" name="My First Snippet">
+        <section>
+            <div class="container">
+                <h1 class="team-h1 mb32">Our Team</h1>
+
+                <!-- member-->
+                <div class="team-member">
+                    <img class="team-photo" src="/snippets_first/static/src/img/doni1.png"/>
+                    <h3>DONI</h3>
+                    <span>This section could be used to show a very short bio description for each member</span>
+                    <a class="email" href="mailto:email@something.com"><span >email</span></a>
+                </div>
+
+
+                <!-- member-->
+                <div class="team-member">
+                    <img class="team-photo" src="/snippets_first/static/src/img/nanang1.png"/>
+                    <h3>NANANG</h3>
+                    <span>This section could be used to show a very short bio description for each member</span>
+                    <a class="email" href="mailto:email@something.com"><span >email</span></a>
+                </div>
+
+
+                <!-- member-->
+                <div class="team-member">
+                    <img class="team-photo" src="/snippets_first/static/src/img/edy1.png"/>
+                    <h3>EDY</h3>
+                    <span>This section could be used to show a very short bio description for each member</span>
+                    <a class="email" href="mailto:email@something.com"><span >email</span></a>
+                </div>
+            </div>
+         </section>
+    </template>
+
+    <!-- ADD - Snippets menu -->
+    <template id="add_my_snippets" inherit_id="website.snippets" name="Add My snippet">
+        <xpath expr="//div[@id='snippet_structure']//div[@class='o_panel_body']" position="inside">
+            <t t-snippet="snippets_first.s_ourteam"
+               t-thumbnail="/snippets_first/static/src/icon/our-team-icon.png"/>
+        </xpath>
+    </template>
+</odoo>

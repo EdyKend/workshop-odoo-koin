@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="snippet_basic_mall_banner" name="My Basic Banner">
+        <!-- Snippet Body -->
+        <section class="container">
+            <div class="row mt32">
+                <div class="col-md-4 col-sm-4 col-xs-12 padding-lr-1">
+                    <div class="oe_structure">
+                        <img src="/snippets_first/static/src/img/b-500x250-7.jpg" width="100%"/>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12 padding-lr-1">
+                    <div class="oe_structure">
+                        <img src="/snippets_first/static/src/img/b-500x250-8.jpg" width="100%"/>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12 padding-lr-1">
+                    <div class="oe_structure">
+                        <img src="/snippets_first/static/src/img/b-500x250-9.jpg" width="100%"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- ADD - Snippets menu -->
+    <template id="my_basic_banner" inherit_id="website.snippets" name="Add My Snippet Basic">
+        <xpath expr="//div[@id='snippet_structure']//div[@class='o_panel_body']" position="inside">
+            <t t-snippet="snippets_first.snippet_basic_mall_banner"
+               t-thumbnail="/snippets_first/static/src/icon/basic-t03.png"/>
+        </xpath>
+    </template>
+
+
+</odoo>

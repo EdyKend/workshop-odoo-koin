@@ -1,0 +1,7 @@
+<odoo>
+    <template id="assent_front" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link href="/snippets_first/static/src/css/my_css.css" rel="stylesheet"/>
+        </xpath>
+    </template>
+</odoo>
